@@ -7,6 +7,7 @@ const Login = () => {
   const [faceId, setFaceId] = useState(null);
   const [voiceId, setVoiceId] = useState(null);
   const [palmId, setPalmId] = useState(null);
+  const [fingerprintId, setFingerprintId] = useState(null);
 
   const handleFaceIdChange = (e) => {
     setFaceId(e.target.files[0]);
@@ -20,15 +21,22 @@ const Login = () => {
     setPalmId(e.target.files[0]);
   };
 
+  const handleFingerprintIdChange = (e) => {
+    setFingerprintId(e.target.files[0]);
+  };
+
+  
+
   const handleLogin = async () => {
     try {
       // Call backend APIs for different ID types
       const responseFaceId = await uploadFile(faceId, 'faceId');
       const responseVoiceId = await uploadFile(voiceId, 'voiceId');
       const responsePalmId = await uploadFile(palmId, 'palmId');
+      const responseFingerprintId = await uploadFile(fingerprintId, 'fingerprintId');
 
       // Check if all APIs were successful
-      if (responseFaceId.result_faces[0] && responseVoiceId && responsePalmId) {
+      if (responseFaceId.result_faces[0] && responseVoiceId && responsePalmId && responseFingerprintId) {
        
         navigate('/landing');
         console.log('Login successful');
@@ -71,6 +79,9 @@ const Login = () => {
 
         <label htmlFor="palmId">Palm ID:</label>
         <input type="file" id="palmId" onChange={handlePalmIdChange} />
+
+        <label htmlFor="fingerprintId">Fingerprint ID:</label>
+        <input type="file" id="fingerprintId" onChange={handleFingerprintIdChange} />
 
         <button onClick={handleLogin}>Login</button>
       </div>
