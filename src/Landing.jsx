@@ -1,10 +1,13 @@
 import React from 'react';
+import './BankLoginPage.css';
 
 const Landing = () => {
   return (
-    <div>
-      <h1>Welcome to the Landing Page!</h1>
-      <p>This is a sample landing page content.</p>
+    <div className="container">
+      <div className="landing-content">
+        <h1>Your Login is Successful!</h1>
+        <p>Welcome to the online banking</p>
+      </div>
     </div>
   );
 };

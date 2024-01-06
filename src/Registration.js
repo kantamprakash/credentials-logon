@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BankLoginPage.css'; // Import the CSS file for styling
 
-const Login = () => {
+const Registration = () => {
     const navigate = useNavigate();
   const [faceId, setFaceId] = useState(null);
   const [voiceId, setVoiceId] = useState(null);
@@ -17,8 +17,8 @@ const Login = () => {
     setVoiceId(e.target.files[0]);
   };
 
-  //const handlePalmIdChange = (e) => {
-    //setPalmId(e.target.files[0]);
+  // const handlePalmIdChange = (e) => {
+    // setPalmId(e.target.files[0]);
   // };
 
   const handleFingerprintIdChange = (e) => {
@@ -27,7 +27,7 @@ const Login = () => {
 
   
 
-  const handleLogin = async () => {
+  const handleRegistration = async () => {
     try {
       // Call backend APIs for different ID types
       const responseFaceId = await uploadFile(faceId, 'faceId');
@@ -38,17 +38,17 @@ const Login = () => {
       // Check if all APIs were successful
       if (responseFaceId.result_faces[0] && responseVoiceId  && responseFingerprintId) {
        
-        navigate('/landing');
-        console.log('Login successful');
+        navigate('/');
+        console.log('Registration successful');
         // Navigate to the landing page
         // You can use a library like react-router-dom for navigation
         // Example: history.push('/landing');
-        console.log('Login successful');
+        console.log('Registration successful');
       } else {
-        console.error('Login failed');
+        console.error('Registration failed');
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error('Error during Registration:', error);
     }
   };
 
@@ -69,9 +69,9 @@ const Login = () => {
   };
 
   return (
-    <div className="bank-login-container">
-      <div className="bank-login-form">
-        <h2>Login</h2>
+    <div className="bank-registration-container">
+      <div className="bank-registration-form">
+        <h2>Register</h2>
         
 
         <label htmlFor="voiceId">Voice ID:</label>
@@ -83,12 +83,12 @@ const Login = () => {
         <label htmlFor="fingerprintId">Fingerprint Password:</label>
         <input type="file" id="fingerprintId" onChange={handleFingerprintIdChange} />
 
-        <button onClick={handleLogin}>Login</button>
+        <button onClick={handleRegistration}>Register</button>
     
-        <p>No account? <a href="/registration">Register here</a></p> {/* Register link */}
+        <p>Already have account? <a href="/">Login here</a></p> 
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Registration;

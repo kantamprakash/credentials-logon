@@ -1,38 +1,117 @@
-.bank-login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+/* BankLoginPage.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/public/images/digi.webp');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.bank-login-container,
+.bank-registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.bank-login-form,
+.bank-registration-form {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.bank-login-form h2,
+.bank-registration-form h2,
+.landing-content h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bank-login-form label,
+.bank-registration-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.bank-login-form input[type="file"],
+.bank-registration-form input[type="file"],
+.bank-login-form input[type="text"],
+.bank-registration-form input[type="text"],
+.bank-login-form input[type="email"],
+.bank-registration-form input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.bank-login-form button,
+.bank-registration-form button{
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bank-login-form button:hover,
+.bank-registration-form button:hover{
+  background-color: #eee;
+}
+
+.bank-login-form p,
+.bank-registration-form p{
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+
+.bank-login-form a,
+.bank-registration-form a{
+  color: white;
+  text-decoration: underline;
+}
+
+
+
+/* BankLoginPage.css */
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/public/images/digi.webp');
+  background-size: cover;
+  background-position: center;
   
-  .bank-login-form {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.landing-content {
+  max-width: 600px;
+}
+
+.landing-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.landing-content p {
+  font-size: 1.2em;
+}
