@@ -6,7 +6,6 @@ const Registration = () => {
     const navigate = useNavigate();
   const [faceId, setFaceId] = useState(null);
   const [voiceId, setVoiceId] = useState(null);
-  // const [palmId, setPalmId] = useState(null);
   const [fingerprintId, setFingerprintId] = useState(null);
 
   const handleFaceIdChange = (e) => {
@@ -30,10 +29,10 @@ const Registration = () => {
   const handleRegistration = async () => {
     try {
       // Call backend APIs for different ID types
-      const responseFaceId = await uploadFile(faceId, 'faceId');
-      const responseVoiceId = await uploadFile(voiceId, 'voiceId');
+      const responseFaceId = await uploadFile(faceId, 'detectFace');
+      const responseVoiceId = await uploadFile(voiceId, 'detectVoice');
       // const responsePalmId = await uploadFile(palmId, 'palmId');
-      const responseFingerprintId = await uploadFile(fingerprintId, 'fingerprintId');
+      const responseFingerprintId = await uploadFile(fingerprintId, 'detectFingerprint');
 
       // Check if all APIs were successful
       if (responseFaceId.result_faces[0] && responseVoiceId  && responseFingerprintId) {
